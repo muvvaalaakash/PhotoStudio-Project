@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: photo-app
-        image: mvnsakash/photo-studio:latest
+        image: mvnsakash/photostudio:v1.1.0
         ports:
         - containerport: 3000
         envFrom: 
