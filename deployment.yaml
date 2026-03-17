@@ -1,34 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
+metadata:
   name: photo-app
 spec:
   replicas: 2
   selector:
     matchLabels:
       app: photo-app
-  template: 
+  template:
     metadata:
-      labels: 
+      labels:
         app: photo-app
     spec:
       containers:
       - name: photo-app
         image: mvnsakash/photostudio:v1.1.0
         ports:
-        - containerport: 3000
-        envFrom: 
+        - containerPort: 3000   # FIXED
+        envFrom:
         - configMapRef:
             name: photostudio-config
 ---
 apiVersion: v1
 kind: Service
-metadata: 
+metadata:
   name: photo-service
-spec: 
+spec:
   selector:
     app: photo-app
   ports:
     - port: 3000
-      targetport: 3000
+      targetPort: 3000   # FIXED
+      nodePort: 30007    # OPTIONAL but recommended
   type: NodePort
