@@ -1,5 +1,5 @@
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
 metadata:
-  name: photo-l2
+  name: metallb-l2
   namespace: metallb-system
