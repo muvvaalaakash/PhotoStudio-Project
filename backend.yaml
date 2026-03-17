@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
+metadata:
   name: mongodb
 spec:
-  replicas: 2
-  selctor:
+  replicas: 1   # IMPORTANT: keep 1 unless you know replica sets
+  selector:
     matchLabels:
       app: mongodb
-  template: 
+  template:
     metadata:
       labels:
         app: mongodb
-  spec:
-    containers:
-    - name: mongodb
-      image: mongo:7
-      ports:
-      - containerPorts: 27017
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo:7
+        ports:
+        - containerPort: 27017   # FIXED
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongodb-service
+  name: mongo   # MUST match your ConfigMap hostname
 spec:
   selector:
     app: mongodb
