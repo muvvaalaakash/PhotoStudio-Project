@@ -7,6 +7,11 @@ spec:
   selector:
     matchLabels:
       app: photo-app
+  startegy:
+    type: RollingUpdate
+    rollingupdate: 
+      maxUnavailable: 25%
+      maxSurge: 25%
   template:
     metadata:
       labels:
@@ -20,6 +25,13 @@ spec:
         envFrom:
         - configMapRef:
             name: photostudio-config
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
 ---
 apiVersion: v1
 kind: Service
