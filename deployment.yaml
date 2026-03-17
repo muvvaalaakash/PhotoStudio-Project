@@ -44,4 +44,4 @@ spec:
     - port: 3000
       targetPort: 3000   # FIXED
       nodePort: 30007    # OPTIONAL but recommended
-  type: NodePort
+  type: LoadBalancer
