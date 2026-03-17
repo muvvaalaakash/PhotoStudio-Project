@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
-metadata: 
+metadata:
   name: photostudio-config
 data:
-  MONGODB_AUTH_URI=mongodb:mongo:27017/artgallery
-  MONGODB_FEEDBACK_URI=mongodb:mongo:27017/artgallery
-  MONGODB_URI=mongodb:mongo:27017
+  MONGODB_AUTH_URI: mongodb://mongo:27017/artgallery
+  MONGODB_FEEDBACK_URI: mongodb://mongo:27017/artgallery
+  MONGODB_URI: mongodb://mongo:27017
